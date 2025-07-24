@@ -1,12 +1,11 @@
 <template>
-  <div class="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-blue-100 via-orange-100 to-blue-100">
+  <div
+    class="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-blue-100 via-orange-100 to-blue-100">
     <!-- Header -->
     <header class="w-full md:w-4/5 lg:w-2/3 py-4 px-4 space-y-2">
       <h1 class="text-gray-700">Responde a las preguntas</h1>
       <div class="h-4 w-full bg-white border-gray-950 rounded-full overflow-hidden">
-        <div
-          class="bg-gray-900 h-full transition-all duration-300"
-          :style="{ width: progressBarWidth }"></div>
+        <div class="bg-gray-900 h-full transition-all duration-300" :style="{ width: progressBarWidth }"></div>
       </div>
     </header>
 
@@ -22,30 +21,19 @@
           </p>
         </header>
         <section class="py-4 space-y-2">
-          <ResponseItem
-            v-for="(response, index) in currentQuestion.responses"
-            :key="index"
-            :response="response.response"
-            :selected="selectedResponse === index"
-            @click="selectResponse(index)"
-          />
+          <ResponseItem v-for="(response, index) in currentQuestion.responses" :key="index"
+            :response="response.response" :selected="selectedResponse === index" @click="selectResponse(index)" />
         </section>
       </section>
     </main>
 
     <!-- Footer -->
     <footer class="w-full px-4 py-2 bg-white flex gap-2 justify-end items-center">
-      <button
-        class="btn-secondary"
-        @click="cancelTest"
-      >
-        {{currentIndex > 0 ? 'Atrás' : 'Cancelar'}}
+      <button class="btn-secondary" @click="cancelTest">
+        {{ currentIndex > 0 ? 'Atrás' : 'Cancelar' }}
       </button>
-      <button
-        class="btn-primary"
-        @click="nextQuestion"
-        :disabled="currentIndex >= storeQuestion.questions.length" >
-        {{ currentIndex >= storeQuestion.questions.length ? 'Finalizar' : 'Siguiente' }}
+      <button class="btn-primary" @click="nextQuestion" :disabled="currentIndex >= storeQuestion.questions.length">
+        {{ currentIndex == storeQuestion.questions.length - 1 ? 'Finalizar' : 'Siguiente' }}
       </button>
     </footer>
   </div>
@@ -94,9 +82,9 @@ const nextQuestion = () => {
 // cancelar (puedes redirigir o resetear)
 const cancelTest = () => {
   if (currentIndex.value > 0) {
-    currentIndex.value --
+    currentIndex.value--
     selectedResponse.value = null
-  }else {
+  } else {
     navigateTo('/')
   }
 }

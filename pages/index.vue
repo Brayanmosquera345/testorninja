@@ -56,6 +56,7 @@ const generateTestLocal = async () => {
     try {
         isLoading.value = true;
         isError.value = false
+        storeQuestion.clearData();
         const response = await generateTest(prompt.value, level.value);
         const questions: Question[] = JSON.parse(response?.result)
         if (response?.result !== '0') {

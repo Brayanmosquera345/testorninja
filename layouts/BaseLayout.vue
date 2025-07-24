@@ -1,5 +1,5 @@
 <template>
-    <main class="min-h-screen lg:h-screen bg-gradient-to-r from-blue-100 via-orange-100 to-blue-100 px-4 flex flex-col">
+    <main class="h-screen bg-gradient-to-r from-blue-100 via-orange-100 to-blue-100 px-4 flex flex-col">
         <div class="flex-1">
             <slot></slot>
         </div>

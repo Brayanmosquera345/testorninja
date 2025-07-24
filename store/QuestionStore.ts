@@ -16,6 +16,13 @@ export const useQuestionStore = defineStore('myQuestionStore', {
     },
     setUserAnswer(questionIndex: number, responseIndex: number) {
       this.userAnswers[questionIndex] = responseIndex
+    },
+    clearData() {
+      this.topic = ''
+      this.level = ''
+      this.questions = []
+      this.userAnswers = []
+      this.feedback = ''
     }
   },
   persist: true

@@ -1,50 +1,48 @@
 <template>
-  <BaseLayout>
+  <section
+    class="flex flex-col lg:flex-row justify-center gap-4 min-h-screen lg:h-screen p-4 bg-gradient-to-r from-blue-100 via-orange-100 to-blue-100">
+    <!-- Panel izquierdo -->
     <section
-      class="flex flex-col lg:flex-row justify-center gap-4 min-h-full bg-gradient-to-r ">
-      <!-- Panel izquierdo -->
-      <section
-        class="flex flex-col justify-center items-center w-full lg:w-1/2 bg-white border border-gray-300 rounded-md py-4 px-4 lg:px-6 space-y-4">
-        <header class="text-center flex flex-col items-center gap-2 text-gray-900">
-          <Logo :size="80" />
-          <h1 class="font-bold text-2xl text-gray-900">¡Has completado la prueba!</h1>
-        </header>
+      class="flex flex-col justify-center items-center w-full lg:w-1/2 bg-white border border-gray-300 rounded-md py-4 px-4 lg:px-6 space-y-4">
+      <header class="text-center flex flex-col items-center gap-2 text-gray-900">
+        <Logo :size="80" />
+        <h1 class="font-bold text-2xl text-gray-900">¡Has completado la prueba!</h1>
+      </header>
 
-        <!-- Puntaje -->
-        <div class="text-center">
-          <p class="text-gray-700">
-            Obtuviste
-            <span class="text-gray-900 font-bold">{{ totalCorrect }}/{{ totalQuestions }}</span>
-            respuestas correctas
-          </p>
-        </div>
+      <!-- Puntaje -->
+      <div class="text-center">
+        <p class="text-gray-700">
+          Obtuviste
+          <span class="text-gray-900 font-bold">{{ totalCorrect }}/{{ totalQuestions }}</span>
+          respuestas correctas
+        </p>
+      </div>
 
-        <!-- Feedback -->
-        <section v-if="isLoading"
-          class="bg-gray-200 rounded-md border border-gray-300 text-gray-700 w-full text-center animate-pulse min-h-[7rem] flex items-center justify-center px-2">
-          <p>Estamos generando una recomendación para ti...</p>
-        </section>
-        <section v-else class="p-4 bg-gray-100 rounded-md border border-gray-300 text-gray-700 w-full text-center">
-          <p>{{ store.feedback }}</p>
-        </section>
-
-        <!-- Botones -->
-        <footer class="space-x-2 pt-4">
-          <button @click="navigateTo('/')" class="btn-primary">
-            Volver al inicio
-          </button>
-        </footer>
+      <!-- Feedback -->
+      <section v-if="isLoading"
+        class="bg-gray-200 rounded-md border border-gray-300 text-gray-700 w-full text-center animate-pulse min-h-[7rem] flex items-center justify-center px-2">
+        <p>Estamos generando una recomendación para ti...</p>
+      </section>
+      <section v-else class="p-4 bg-gray-100 rounded-md border border-gray-300 text-gray-700 w-full text-center">
+        <p>{{ store.feedback }}</p>
       </section>
 
-      <!-- Panel derecho -->
-      <section class="w-full lg:w-1/2 rounded-md">
-        <ul class="space-y-4 max-h-[91vh] overflow-auto p-2">
-          <result-item v-for="(q, i) in store.questions" :key="i" :number="i + 1" :is-error="!isAnswerCorrect(i)"
-            :question="q.statement" :response="getCorrectResponse(q)" :response-user="getUserResponse(i)" />
-        </ul>
-      </section>
+      <!-- Botones -->
+      <footer class="space-x-2 pt-4">
+        <button @click="navigateTo('/')" class="btn-primary">
+          Volver al inicio
+        </button>
+      </footer>
     </section>
-  </BaseLayout>
+
+    <!-- Panel derecho -->
+    <section class="w-full lg:w-1/2 rounded-md h-full">
+      <ul class="space-y-4 h-full  overflow-auto ">
+        <result-item v-for="(q, i) in store.questions" :key="i" :number="i + 1" :is-error="!isAnswerCorrect(i)"
+          :question="q.statement" :response="getCorrectResponse(q)" :response-user="getUserResponse(i)" />
+      </ul>
+    </section>
+  </section>
 </template>
 
 
@@ -55,7 +53,6 @@ import { getFeedback } from '~/service/AgentService'
 //componentes
 import Logo from '~/components/Icons/Logo.vue'
 import ResultItem from '~/components/ResultItem/ResultItem.vue'
-import BaseLayout from '~/layouts/BaseLayout.vue'
 
 const store = useQuestionStore()
 
