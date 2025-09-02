@@ -4,7 +4,7 @@
             <h1 class="text-5xl font-bold text-title max-w-3xl text-center">Evalua tu conocimiento sin importar el tema</h1>
             <p class="text-paragraph max-w-3xl text-center">Crea cuestionarios de selección múltiple sobre cualquier tema, pon a prueba tus conocimientos y aprende de forma divertida.</p>
             <button @click="showChat" class="btn-primary-full btn-lg flex gap-2 items-center">
-                Crear prueba
+                Crear evaluación
                 <ArrowRight />
             </button>
         </div>

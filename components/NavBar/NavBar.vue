@@ -47,7 +47,7 @@
         </button>
 
         <div class="hidden md:block">
-          <button @click="showChat" class="btn-primary-full btn-md">Crear prueba</button>
+          <button @click="showChat" class="btn-primary-full btn-md">Crear evaluación</button>
         </div>
       </nav>
     </header>
@@ -100,7 +100,7 @@
             </li>
           </ul>
 
-          <button @click="showChat" class="btn-primary btn-md">Crear prueba</button>
+          <button @click="showChat" class="btn-primary btn-md">Crear evaluación</button>
         </div>
       </nav>
     </header>
