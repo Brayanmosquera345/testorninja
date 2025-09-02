@@ -29,10 +29,10 @@
 
     <!-- Footer -->
     <footer class="w-full px-4 py-2 bg-white flex gap-2 justify-end items-center">
-      <button class="btn-secondary" @click="cancelTest">
+      <button class="btn-secondary btn-md" @click="cancelTest">
         {{ currentIndex > 0 ? 'Atrás' : 'Cancelar' }}
       </button>
-      <button class="btn-primary" @click="nextQuestion" :disabled="currentIndex >= storeQuestion.questions.length">
+      <button class="btn-primary btn-md" @click="nextQuestion" :disabled="currentIndex >= storeQuestion.questions.length">
         {{ currentIndex == storeQuestion.questions.length - 1 ? 'Finalizar' : 'Siguiente' }}
       </button>
     </footer>

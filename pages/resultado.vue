@@ -29,7 +29,7 @@
 
       <!-- Botones -->
       <footer class="space-x-2 pt-4">
-        <button @click="navigateTo('/')" class="btn-primary">
+        <button @click="navigateTo('/')" class="btn-primary btn-md">
           Volver al inicio
         </button>
       </footer>

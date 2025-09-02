@@ -7,11 +7,21 @@ const config: Config = {
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
     './app.vue',
-    './nuxt.config.{js,ts}',
+    './error.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#0B0C08',
+        secondary: '#DDEBFF',
+        accent: '#FEEDD7',
+        background: '#F3F3F3',
+        paragraph: '#6A6A6A',
+        title: '#0B0C08',
+      },
+    },
   },
   plugins: [],
 }
+
 export default config
